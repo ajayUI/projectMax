@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Blank
@@ -17,4 +17,79 @@
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
+</ion-content> -->
+
+
+<ion-content class="mainAppContainer">
+  <ion-card class="mainBlockContainer"  >
+    <ion-card-content class="innerContainer">
+      <div class="biggerBlockProgressContainer" [class.hold]="(currentBuildingOccupancy/maximumBuildingOccupancy)>=1">
+     <h2 (click)="buttonClikedCounter()">{{clientName}}</h2>
+        <div class="progressHeading"  [class.holdBar]="(currentBuildingOccupancy/maximumBuildingOccupancy)>=1">
+          <ng-container *ngIf="(currentBuildingOccupancy/maximumBuildingOccupancy)>=1">
+            <span class="progressLabel">HOLD</span>
+          </ng-container>
+          <ng-container *ngIf="(currentBuildingOccupancy/maximumBuildingOccupancy)<1">
+            <span class="progressLabel">OPEN</span>
+          </ng-container>
+          <span class="waitTime">{{waitTime}} mins</span>
+        </div>
+    
+    <div class="progressBarContainer">
+      <span class="labelLeft">Capacity</span><span class="labelRight">{{currentBuildingOccupancy}}-{{maximumBuildingOccupancy}}</span>
+      <ion-progress-bar value="{{currentBuildingOccupancy/maximumBuildingOccupancy}}"></ion-progress-bar>
+    </div>
+      </div>
+    <div class="smallCounterContainer"> 
+      <span class="iconContainer currentCount">
+
+      </span>
+      <div class="FootfallCount">
+          <span class="footfallLabel">Current FOOtfall Count</span>
+          <span class="footfallNumber">{{currentBuildingOccupancy}}</span>
+      </div>
+    </div>
+      <div class="smallCounterContainer">
+        <span class="iconContainer totalCount">
+
+        </span>
+        <div class="FootfallCount">
+            <span class="footfallLabel">Total footfall count today</span>
+            <span class="footfallNumber">{{totalVisitsToday}}</span>
+        </div>
+         </div>
+    </ion-card-content>
+  </ion-card>
+
+<div class="overlayFormBackground" *ngIf="showSettingsForm"></div>
+
+  <form class="newappForm" *ngIf="showSettingsForm">
+    <ion-item>
+      <ion-label position="floating">Client Name</ion-label>
+      <ion-textarea type="text" rows="2" [(ngModel)]="clientName" name="client name"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label  position="floating">Maximum Building Occupancy</ion-label>
+      <ion-input type="number" [(ngModel)]="maximumBuildingOccupancy" name="building occupancy"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label  position="floating">Current Building Occupancy</ion-label>
+      <ion-input type="number" [(ngModel)]="currentBuildingOccupancy"name ="current building occupancy" ></ion-input>
+    </ion-item>
+       <ion-item>
+      <ion-label  position="floating">Toral Visits Today</ion-label>
+      <ion-input type="number" [(ngModel)]="totalVisitsToday" name="Total visits today" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label  position="floating">Wait Time</ion-label>
+      <ion-input type="number" [(ngModel)]="waitTime" name="wait time" ></ion-input>
+    </ion-item>
+    <div class="submit-form-button">
+      <button class="update" (click)="hideForm()">
+        Update  </button></div>
+        <!-- <ion-icon class="close-form" (click)="hideForm()"  name="close-circle"> </ion-icon> -->
+    <!-- <button ion-button type="submit" block>Add Todo</button> -->
+  </form>
+
+
 </ion-content>

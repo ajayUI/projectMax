@@ -1,27 +1,318 @@
-#container {
-  text-align: center;
+// #container {
+//   text-align: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
+
+// #container strong {
+//   font-size: 20px;
+//   line-height: 26px;
+// }
+
+// #container p {
+//   font-size: 16px;
+//   line-height: 22px;
+
+//   color: #8c8c8c;
+
+//   margin: 0;
+// }
+
+// #container a {
+//   text-decoration: none;
+// }
+
+.mainAppContainer
+{
+    font-family: 'Roboto', sans-serif;
+    position: absolute;width: 100%; height: 100%;top:0px;left:0px; z-index: 9999; background: #ccc
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.mainBlockContainer {
+    
+    border-radius: 20px;
+    height:calc(100% - 20px);
+    margin: 10px;
+    padding: 0px;
+    font-family: 'Roboto' !important;
+    h2 {
+        font-size:14pt;
+    }
+    .progressHeading
+    {
+        top:35%;
+        padding-left:3em;
+        position: absolute;
+        background: url("/assets/open.svg") no-repeat left center;
+        background-size: 2.5em 2.5em;
+    }
+
+    .holdBar
+    {
+        background: url("/assets/hold.svg") no-repeat left center;
+        background-size: 2.5em 2.5em;
+    }
+    .progressLabel
+    {
+        font-size:35pt;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .waitTime {font-size:12pt; margin-left: 15px;}
+    .innerContainer
+    {
+        background: #fff;
+        border-radius: 15px;
+        height: 100%;
+        padding: 15px;
+    }
+
+    .biggerBlockProgressContainer
+    {
+        background: #a0ce7c;
+        border-radius: 15px;
+        padding: 20px;
+        color:#fff;
+        height: calc(100% - 240px);
+        position: relative;
+    }
+   
+    .progressBarContainer
+    { margin: 20px 0px;
+        font-size:14pt ;
+        text-transform: uppercase;
+        position: absolute;
+    bottom: 15px;
+    width: calc(100% - 40px);
+        .labelLeft{float: left; margin-bottom: 10px; text-transform: uppercase;}
+        .labelRight{float: right; margin-bottom: 10px; font-weight: bold;}
+        ion-progress-bar
+        {
+            height: 20px;
+            border-radius: 10px;
+            --progress-background:#3d3d3d;
+            --buffer-background:#fff;
+            .progress
+            {
+                border-radius: 10px;
+            }
+        }
+    }
+
+    
+    .smallCounterContainer
+    {
+        background: #e9e7e7;
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        width: 100%;
+        margin-top: 15px;
+        font-family: 'Roboto';
+        height: 105px;
+        .iconContainer
+        {
+            width: 4.5em;
+            height: 4.5em;
+            display: block;
+            float: left;
+            border-radius: 10px;
+            margin-right: 1em;
+          
+        }
+        .currentCount
+        {
+            background: #9698d5 url("/assets/user.svg") no-repeat center center;
+            background-size: 70% 70%;
+        }
+        .totalCount
+        {
+            background: #f39099 url("/assets/group.svg") no-repeat center center;
+            background-size: 70% 70%;
+        }
+        .FootfallCount
+        {
+            float: left;
+            color:#3d3d3d;
+            width: calc(100% - 5em);
+            font-weight: 500;
+            .footfallLabel { font-size: 9pt; text-transform: uppercase; display: block;}
+            .footfallNumber { font-size: 26pt; font-weight: bold; text-transform: uppercase;}
+        }
+
+    }
+
+    
+}
+.hold
+{
+    background:#ef716f !important ;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+@media (max-width:2100px) and (min-width:768px) {
+.newappForm
+{min-width:500px}
+    
+    .mainBlockContainer  .smallCounterContainer
+    {
+        min-height: 125px;
+    }
 
-  color: #8c8c8c;
+    .mainBlockContainer .biggerBlockProgressContainer
+    {
+      
+        height: calc(100% - 140px);
+    }
+    .progressHeading .progressLabel
+    {
+        font-size:70pt;
+        
+    }
+   .mainBlockContainer .progressBarContainer, .mainBlockContainer   h2, .mainBlockContainer .waitTime
+    {    
+             font-size:18pt ;
+    }
+    .mainBlockContainer .progressHeading, .mainBlockContainer .progressHeading.holdBar {
+        padding-left: 5em;
+        background-size: 4.25em 4.25em;
+    }
+    .mainBlockContainer .smallCounterContainer 
+    {
+        display: inline-flex;
+        width: calc(50% - 7.5px);
+    }
+    .mainBlockContainer .smallCounterContainer:last-child
+    {
+      float: right;
+    }
+   .mainBlockContainer .smallCounterContainer .FootfallCount  .footfallLabel
+    {
+       
+        font-size: 14pt; 
+    }
+    .mainBlockContainer .smallCounterContainer .FootfallCount  .footfallNumber 
+    {
+         font-size: 28pt;
+        }
 
-  margin: 0;
+        .mainBlockContainer .smallCounterContainer  .iconContainer
+        {
+            width: 5.5em;
+            height: 5.5em;
+        }
 }
 
-#container a {
-  text-decoration: none;
+@media (max-width:376px) and (min-width:320px) {
+    
+    .mainBlockContainer .biggerBlockProgressContainer h2
+    {
+    font-size: 12pt;
+    }
+    .mainBlockContainer .progressLabel
+    {
+        font-size: 30pt;
+    }
+    .mainBlockContainer .waitTime
+    {
+        font-size: 10pt;
+    }
+}
+
+@media (max-width:960px) and (min-width:768px) {
+    .mainBlockContainer  .smallCounterContainer
+    {
+        min-height: 110px;
+    }
+    .mainBlockContainer .biggerBlockProgressContainer
+    {
+      
+        height: calc(100% - 125px);
+    }
+    .mainBlockContainer .smallCounterContainer .FootfallCount  .footfallLabel
+    {
+       
+        font-size: 10pt !important; 
+    }
+    .mainBlockContainer .smallCounterContainer .FootfallCount  .footfallNumber 
+    {
+         font-size: 17pt !important;
+        }
+
+        .progressHeading .progressLabel
+        {
+            font-size:60pt;
+            
+        }
+       .mainBlockContainer .progressBarContainer, .mainBlockContainer   h2, .mainBlockContainer .waitTime
+        {    
+                 font-size:14pt ;
+        }
+        .mainBlockContainer .progressHeading, .mainBlockContainer .progressHeading.holdBar {
+            padding-left: 4.5em;
+            background-size: 4em 4em;
+        }
+
+        .mainBlockContainer .smallCounterContainer  .iconContainer
+        {
+            width: 4.5em;
+            height: 4.5em;
+        }
+       
+}
+.overlayFormBackground
+{
+    z-index: 999;
+    background:rgba(0, 0, 0, 0.65);
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    
+}
+.newappForm
+{
+    z-index: 9999;
+    margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%); background:rgba(255,255,255,1);
+padding:20px;
+border-radius: 10px;
+}
+.newappForm ion-item
+{
+    --background:rgba(255,255,255,0.6);
+    font-family: 'Roboto';
+    ion-input
+    {
+        font-size: 14pt;
+    }
+
+}
+.submit-form-button
+{
+    text-align: center;
+    padding-top: 10px;
+    ion-icon {
+        font-size: 30px;
+    }
+    button.update {
+        padding: 15px 30px;
+    outline: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 20px;
+    font-family: 'Roboto';
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    background: #ef716f;
+    color:#fff ;
+    }
 }

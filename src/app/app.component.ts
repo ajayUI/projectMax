@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+declare var androidCallback: any;
 
 @Component({
   selector: 'app-root',
@@ -16,12 +17,20 @@ export class AppComponent {
     private statusBar: StatusBar
   ) {
     this.initializeApp();
+    androidCallback.appInit();
+
+    window.addEventListener(
+      'callbackAppInit',
+      (data: any) => {
+        alert(data);
+      })
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
     });
   }
 }
